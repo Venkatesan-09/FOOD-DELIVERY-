@@ -1,0 +1,300 @@
+/* Orders.css */
+.order {
+    background: linear-gradient(135deg, #f0f2f5 0%, #dfe6e9 100%);
+    min-height: calc(100vh - 80px);
+    padding: 40px;
+    margin-left: 250px;
+    margin-top: 80px;
+}
+
+.order h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a2e;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.order h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(to right, #6c5ce7, #a29bfe);
+    border-radius: 2px;
+}
+
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.order-item {
+    background: white;
+    border-radius: 20px;
+    padding: 25px 30px;
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1.5fr;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+    animation: slideIn 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.order-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.order-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s;
+}
+
+.order-item:hover img {
+    border-color: #6c5ce7;
+    transform: rotate(10deg);
+}
+
+.order-item > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.order-item-food {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2d3436;
+    margin: 0;
+}
+
+.order-item-name {
+    font-size: 14px;
+    color: #636e72;
+    margin: 0;
+    font-weight: 500;
+}
+
+.order-item-address {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.order-item-address p {
+    font-size: 12px;
+    color: #747d8c;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.order-item-phone {
+    font-size: 14px;
+    color: #2d3436;
+    font-weight: 500;
+    margin: 0;
+}
+
+.order-item p:nth-child(3),
+.order-item p:nth-child(4) {
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+    margin: 0;
+    text-align: center;
+}
+
+.order-item p:nth-child(4) {
+    color: #00b894;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.order-item select {
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 35px;
+}
+
+.order-item select:focus {
+    outline: none;
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
+.order-item select option {
+    padding: 10px;
+    background: white;
+    color: #333;
+}
+
+/* Stagger animation for order items */
+.order-item:nth-child(1) { animation-delay: 0.1s; }
+.order-item:nth-child(2) { animation-delay: 0.2s; }
+.order-item:nth-child(3) { animation-delay: 0.3s; }
+.order-item:nth-child(4) { animation-delay: 0.4s; }
+.order-item:nth-child(5) { animation-delay: 0.5s; }
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .order-item {
+        grid-template-columns: 0.5fr 1.5fr 1fr 1fr 1.5fr;
+        gap: 20px;
+        padding: 20px 25px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .order {
+        margin-left: 220px;
+    }
+    
+    .order h3 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 900px) {
+    .order-item {
+        grid-template-columns: 0.5fr 1.2fr 0.8fr 0.8fr 1.2fr;
+        gap: 15px;
+        padding: 18px 20px;
+    }
+    
+    .order-item-food {
+        font-size: 15px;
+    }
+    
+    .order-item select {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .order {
+        margin-left: 70px;
+        padding: 20px;
+        margin-top: 70px;
+    }
+    
+    .order h3 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    
+    .order-item {
+        grid-template-columns: 0.4fr 1fr 0.6fr 0.6fr 1fr;
+        gap: 12px;
+        padding: 15px;
+    }
+    
+    .order-item img {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .order-item-food {
+        font-size: 14px;
+    }
+    
+    .order-item-name,
+    .order-item-phone,
+    .order-item p:nth-child(3),
+    .order-item p:nth-child(4) {
+        font-size: 13px;
+    }
+    
+    .order-item-address p {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 600px) {
+    .order-list {
+        overflow-x: auto;
+    }
+    
+    .order-item {
+        grid-template-columns: 50px 250px 80px 80px 120px;
+        min-width: 600px;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .order {
+        margin-left: 60px;
+        padding: 15px;
+        margin-top: 60px;
+    }
+    
+    .order h3 {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .order-item {
+        grid-template-columns: 40px 200px 70px 70px 100px;
+        min-width: 500px;
+        padding: 12px;
+        gap: 10px;
+    }
+    
+    .order-item img {
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+    }
+    
+    .order-item-food {
+        font-size: 13px;
+    }
+    
+    .order-item select {
+        padding: 6px 10px;
+        font-size: 12px;
+        background-position: right 8px center;
+        padding-right: 30px;
+    }
+}
