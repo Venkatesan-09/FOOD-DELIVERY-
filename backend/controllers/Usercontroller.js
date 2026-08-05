@@ -16,7 +16,7 @@ const loginUser = async (req,res) =>{
         const isMatch = await bcrypt.compare(password,user.password)
 
         if(!isMatch){
-            return res.json({success:false,message:"Invalid vrentials"})
+            return res.json({success:false,message:"Invalid credentials"})
         }
 
         const token = createToken(user._id);
@@ -48,7 +48,7 @@ const registerUser = async (req,res) =>{
         }
 
         if(password.length<8){
-            return res.json({success:false,message:"Please enate a strong password"})
+            return res.json({success:false,message:"Please enter a strong password"})
         }
 
         //hashing user password
