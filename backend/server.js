@@ -10,11 +10,19 @@ import orderRouter from './routes/orderRoute.js'
 
 //app config
 const app = express()
-const port = 4000
+const port = process.env.PORT || 4000
 
 //middlewares
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin: [
+    process.env.FRONTEND_URL,
+    process.env.ADMIN_URL,
+    'http://localhost:5173',
+    'http://localhost:5174'
+  ].filter(Boolean),
+  credentials: true
+}))
 
 //DB connection
 connectDB();
